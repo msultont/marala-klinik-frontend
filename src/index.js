@@ -1,11 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./scss/style.scss";
-import App from "./pages/App";
+import "antd/dist/antd.less";
+import "./styles/scss/style.scss";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById("root")
-);
+import AppRouter from "./router";
+
+ReactDOM.render(<AppRouter />, document.getElementById("root"));
