@@ -1,0 +1,29 @@
+.carousel-content {
+  background-color: $bg-primary;
+  color: $color-white;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 136px);
+  justify-content: center;
+  text-align: center;
+}
+
+.patient-dashboard {
+  cursor: default;
+  height: $default-viewport-height;
+
+  &__header {
+    background-color: $bg-light-grey;
+  }
+
+  &__logo-text {
+    color: $color-primary;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-left: 5px;
+  }
+
+  &__footer {
+    background-color: $bg-light-grey;
+  }
+}
