@@ -1,0 +1,32 @@
+/* *** Default styles *** */
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+::selection {
+}
+
+html,
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  font-smooth: antialiased;
+  margin: 0;
+  padding: 0;
+}
+
+.ant-layout {
+  background: #fff !important;
+}
+
+/*** base ***/
+@import "./base/variables";
+@import "./base/typography";
+@import "./base/general";
+
+/*** pages ***/
+@import "./pages/PatientDashboard";

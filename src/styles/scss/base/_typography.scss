@@ -1,0 +1,135 @@
+/* Font */
+
+// @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Raleway:wght@200;300;500;600;700&display=swap");
+
+/* Body */
+
+body {
+  font-family: 'Raleway', sans-serif;
+  line-height: 1.75em;
+  font-weight: 300;
+}
+
+/* headings */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  line-height: 1.5em;
+  margin: 0;
+}
+
+h1,
+.h1 {
+  font-size: 2.5rem;
+}
+h2,
+.h2 {
+  font-size: 2.25rem;
+}
+h3,
+.h3 {
+  font-size: 1.875rem;
+}
+h4,
+.h4 {
+  font-size: 1.5rem;
+}
+h5,
+.h5 {
+  font-size: 1.25rem;
+}
+h6,
+.h6 {
+  font-size: 1rem;
+}
+
+/* paragraph */
+
+p {
+  font-size: 1rem;
+  margin: 0 0 20px;
+  /* color: #999; */
+  font-weight: 500;
+  font-family: 'Raleway', sans-serif;
+  letter-spacing: 0.5px;
+  color: #555;
+}
+
+ol,
+ul,
+dl {
+  margin-bottom: 0 !important;
+}
+
+button, input, select {
+  font-family: 'Raleway', sans-serif !important;
+}
+
+input, select {
+  font-weight: 300;
+}
+
+// RESPONSIVE
+
+@media only screen and (max-width: 767px) {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    line-height: 1.5em;
+  }
+}
+
+// EXTRA SMALL
+@media only screen and (max-width: 576px) {
+  :root {
+    font-size: $font-size-xs;
+  }
+  .thumbnail {
+    grid-template-columns: 1fr;
+  }
+}
+
+// SMALL
+@media only screen and (min-width: 576px) {
+  :root {
+    font-size: $font-size-sm;
+  }
+  .thumbnail {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+// MEDIUM
+@media only screen and (min-width: 768px) {
+  :root {
+    font-size: $font-size-md;
+  }
+}
+
+// LARGE
+@media only screen and (min-width: 992px) {
+  :root {
+    font-size: $font-size-lg;
+  }
+}
+
+// EXTRA LARGE
+@media only screen and (min-width: 1200px) {
+}
+
+// EXTRA EXTRA-LARGE
+@media only screen and (min-width: 1440px) {
+  .container {
+    max-width: 1300px;
+  }
+}
