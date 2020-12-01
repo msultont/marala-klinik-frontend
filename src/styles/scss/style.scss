@@ -29,4 +29,15 @@ body {
 @import "./base/general";
 
 /*** pages ***/
+@import "./pages/AdminDashboard";
 @import "./pages/PatientDashboard";
+@import "./pages/Login";
+
+/*** Global Custom Styles ***/
+
+.logo-text {
+  color: $color-primary;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-left: 5px;
+}

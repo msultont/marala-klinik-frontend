@@ -84,7 +84,11 @@
   }
 
   .bg-primary {
-    background-color: $bg-primary;
+    background-color: $bg-primary !important;
+  }
+
+  .bg-secondary {
+    background-color: $bg-secondary !important;
   }
 
   .text-danger {
@@ -106,6 +110,19 @@
     text-align: right;
   }
 
+// Font Size
+
+  .fs-25 {
+    font-size: 25px;
+  }
+
+  .fs-35 {
+    font-size: 35px;
+  }
+
+  .fs-50 {
+    font-size: 50px;
+  }
 
 // Font Weight
 
@@ -152,6 +169,30 @@
   }
 
 // 
+
+// Height 100%
+
+  .h-100 {
+    height: 100%;
+  }
+
+//
+
+// Width 100%
+
+  .w-100 {
+    width: 100%;
+  }
+
+//
+
+// Vertical Height
+
+  .vh-100 {
+    height: $default-viewport-height;
+  }
+
+//
 
 // List
 
@@ -313,6 +354,12 @@
 //
 
   @media (max-width: 575px) {
+
+    // Overflow Hidden
+
+    .no-overflow {
+      overflow: hidden;
+    }
 
     // Margin
 

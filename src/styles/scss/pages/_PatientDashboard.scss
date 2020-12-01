@@ -10,17 +10,9 @@
 
 .patient-dashboard {
   cursor: default;
-  height: $default-viewport-height;
 
   &__header {
     background-color: $bg-light-grey;
-  }
-
-  &__logo-text {
-    color: $color-primary;
-    font-weight: 700;
-    letter-spacing: 1px;
-    margin-left: 5px;
   }
 
   &__footer {
