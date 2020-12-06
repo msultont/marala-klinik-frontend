@@ -8,6 +8,6 @@ export const Cookies = {
   USERROLE: "MK_userRole",
   OPTIONS: {
     path: "/",
-    expires: date
+    // expires: date
   }
 };
