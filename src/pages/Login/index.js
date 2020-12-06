@@ -17,11 +17,20 @@ const Login = () => {
     Cookies.USERROLE
   ]);
   const [submitLoading, setSubmitLoading] = useState();
+  const [error, setError] = useState(false);
+
+  const NETWORK_ERROR = (
+    <Item>
+      <span className="color-danger">Network Error!</span>
+    </Item>
+  );
 
   const formLogin = values => {
     setSubmitLoading(true);
+    setError(false);
     AuthAPI.login(values)
       .then(({ status, data }) => {
+        console.log(status);
         if (status === 200) {
           console.log(data);
           setCookies(Cookies.TOKEN, data.accessToken, Cookies.OPTIONS);
@@ -30,12 +39,13 @@ const Login = () => {
           setCookies(Cookies.USERROLE, data.user.role, Cookies.OPTIONS);
           setTimeout(() => {
             window.location.replace("/admin-dashboard");
-          }, 500)
+          }, 500);
         }
       })
       .catch(err => {
         console.error(err);
         setSubmitLoading(false);
+        setError(true);
       });
   };
 
@@ -74,6 +84,7 @@ const Login = () => {
             >
               <Input.Password className="font-bold"></Input.Password>
             </Item>
+            {error ? NETWORK_ERROR : <div></div>}
             <Item>
               <Button
                 className="w-100"

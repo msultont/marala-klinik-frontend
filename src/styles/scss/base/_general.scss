@@ -64,7 +64,7 @@
   }
 
   .color-danger {
-    color: $color-danger;
+    color: $color-danger !important;
   }
 
   .bg-white {
@@ -169,6 +169,14 @@
   }
 
 // 
+
+// Height 50%
+
+  .h-50 {
+    height: 50%;
+  }
+
+//
 
 // Height 100%
 
