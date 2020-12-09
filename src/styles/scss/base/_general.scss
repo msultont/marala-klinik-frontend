@@ -363,6 +363,12 @@
 
   @media (max-width: 575px) {
 
+    // Overflow scroll
+
+    .overflow {
+      overflow: scroll;
+    }
+
     // Overflow Hidden
 
     .no-overflow {

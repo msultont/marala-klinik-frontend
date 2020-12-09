@@ -1,24 +1,11 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useCookies } from "react-cookie";
-import {
-  Avatar,
-  Button,
-  Card,
-  Carousel,
-  Col,
-  Dropdown,
-  Image,
-  Layout,
-  Menu,
-  Row
-} from "antd";
-import {
-  UserOutlined
-} from "@ant-design/icons";
+import { Avatar, Button, Card, Carousel, Col, Dropdown, Image, Layout, Menu, Row } from "antd";
+import { UserOutlined } from "@ant-design/icons";
 
 import Logo from "../../assets/images/logo_marala_1.png";
 import { QueueAPI } from "../../api";
-import {Cookies} from "../../config/Cookies";
+import { Cookies } from "../../config/Cookies";
 
 const date = new Date();
 const { Content, Footer, Header, Sider } = Layout;
@@ -32,7 +19,9 @@ const AdminDashboard = () => {
   };
 
   const LOGOUT = () => {
-    Object.keys(Cookies).forEach(async key => {await removeCookies(Cookies[key], null)})
+    Object.keys(Cookies).forEach(async key => {
+      await removeCookies(Cookies[key], null);
+    });
     console.log(cookies);
   };
 
@@ -47,10 +36,7 @@ const AdminDashboard = () => {
   const AVATAR_MENU = (
     <Menu>
       <Menu.Item>
-        <a
-          href="/login"
-          onClick={LOGOUT}
-        >
+        <a href="/login" onClick={LOGOUT}>
           Logout
         </a>
       </Menu.Item>
@@ -88,26 +74,12 @@ const AdminDashboard = () => {
           <Header className="admin-dashboard__header">
             <Row className="header-content">
               <Col>
-                <Image
-                  alt="marala-logo"
-                  preview={false}
-                  src={Logo}
-                  width={50}
-                />
+                <Image alt="marala-logo" preview={false} src={Logo} width={50} />
                 <span className="logo-text">MARALA KLINIK</span>
               </Col>
               <Col>
-                <Dropdown
-                  arrow
-                  overlay={AVATAR_MENU}
-                  placement="bottomCenter"
-                  trigger={["click"]}
-                >
-                  <Avatar
-                    className="header-content__avatar"
-                    icon={<UserOutlined />}
-                    size={50}
-                  />
+                <Dropdown arrow overlay={AVATAR_MENU} placement="bottomCenter" trigger={["click"]}>
+                  <Avatar className="header-content__avatar" icon={<UserOutlined />} size={50} />
                 </Dropdown>
               </Col>
             </Row>
@@ -148,9 +120,7 @@ const AdminDashboard = () => {
                   <Col span={8}>service 6</Col>
                 </Row>
               </Content>
-              <Footer className="text-center">
-                &copy; {date.getFullYear()} MARALA All Rights Reserved
-              </Footer>
+              <Footer className="text-center">&copy; {date.getFullYear()} MARALA All Rights Reserved</Footer>
             </Layout>
           </Layout>
         </>

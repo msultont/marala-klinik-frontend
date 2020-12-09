@@ -1,31 +1,43 @@
 import React, { useState } from "react";
 import { useCookies } from "react-cookie";
-import { Button, Col, Form, Image, Input, Layout, Row } from "antd";
+import { Col, Image, Layout, Row } from "antd";
 
 import Logo from "../../assets/images/logo_marala_1.png";
+import Form from "../../components/Form";
 import { AuthAPI } from "../../api";
 import { Cookies } from "../../config/Cookies";
 
-const { Item } = Form;
 const { Content } = Layout;
 
 const Login = () => {
-  const [cookies, setCookies] = useCookies([
-    Cookies.TOKEN,
-    Cookies.TOKEN_TYPE,
-    Cookies.USERNAME,
-    Cookies.USERROLE
-  ]);
+  // eslint-disable-next-line no-unused-vars
+  const [cookies, setCookies] = useCookies([Cookies.TOKEN, Cookies.TOKEN_TYPE, Cookies.USERNAME, Cookies.USERROLE]);
   const [submitLoading, setSubmitLoading] = useState();
   const [error, setError] = useState(false);
 
-  const NETWORK_ERROR = (
-    <Item>
-      <span className="color-danger">Network Error!</span>
-    </Item>
-  );
+  const usernameItem = {
+    itemType: "textfield",
+    label: "Username",
+    name: "username",
+    rules: {
+      required: true,
+      message: "Username cannot be empty!"
+    }
+  };
 
-  const formLogin = values => {
+  const passwordItem = {
+    itemType: "textfield",
+    label: "Password",
+    name: "password",
+    rules: {
+      required: true,
+      message: "Password cannot be empty!"
+    }
+  };
+
+  const formItems = [usernameItem, passwordItem];
+
+  const formSubmit = values => {
     setSubmitLoading(true);
     setError(false);
     AuthAPI.login(values)
@@ -63,39 +75,7 @@ const Login = () => {
           <span className="fs-25 logo-text">MARALA KLINIK</span>
         </Row>
         <Row className="main-content__form">
-          <Form
-            className="form__container p-30"
-            layout="vertical"
-            onFinish={formLogin}
-          >
-            <Item
-              className="font-bold"
-              label="Username"
-              name="username"
-              rules={[{ required: true, message: "Username is empty!" }]}
-            >
-              <Input className="font-bold"></Input>
-            </Item>
-            <Item
-              className="font-bold"
-              label="Password"
-              name="password"
-              rules={[{ required: true, message: "Password is empty!" }]}
-            >
-              <Input.Password className="font-bold"></Input.Password>
-            </Item>
-            {error ? NETWORK_ERROR : <div></div>}
-            <Item>
-              <Button
-                className="w-100"
-                htmlType="submit"
-                loading={submitLoading}
-                type="primary"
-              >
-                Login
-              </Button>
-            </Item>
-          </Form>
+          <Form error={error} loading={submitLoading} onFinish={formSubmit} formItems={formItems} formButton="Login"/>
         </Row>
       </Content>
     </Layout>
