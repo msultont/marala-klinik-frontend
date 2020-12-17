@@ -28,10 +28,16 @@ body {
 @import "./base/typography";
 @import "./base/general";
 
+/*** layouts  ***/
+@import "./layouts/MainLayout";
+@import "./layouts/HeaderLayout";
+@import "./layouts/FooterLayout";
+
 /*** pages ***/
 @import "./pages/AdminDashboard";
 @import "./pages/PatientDashboard";
 @import "./pages/Login";
+@import "./pages/Queue";
 
 /*** Global Custom Styles ***/
 

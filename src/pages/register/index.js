@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Row } from "antd";
 
-import Form from "../../../components/Form";
+import Form from "../../components/form";
+import MainLayout from "../../components/layouts/main-layout";
 import { PatientAPI, QueueAPI } from "../../api";
 
 const PatientRegister = () => {
@@ -79,16 +80,18 @@ const PatientRegister = () => {
     PatientAPI.register(values)
       .then(({ status, data }) => {
         if (status === 200) {
-          QueueAPI.addQueue().then(({ status, data }) => {
-            if (status === 200) {
-              alert(`Registrasi Anda berhasil! Nomor Antrian Anda ${data.queue}`);
-              window.location.reload();
-            }
-          }).catch(err => {
-            console.error(err);
-            setSubmitLoading(false);
-            setError(true);
-          })
+          QueueAPI.addQueue()
+            .then(({ status, data }) => {
+              if (status === 200) {
+                alert(`Registrasi Anda berhasil! Nomor Antrian Anda ${data.queue}`);
+                window.location.reload();
+              }
+            })
+            .catch(err => {
+              console.error(err);
+              setSubmitLoading(false);
+              setError(true);
+            });
         }
       })
       .catch(err => {
@@ -99,14 +102,16 @@ const PatientRegister = () => {
   };
 
   return (
-    <div className="flex flex-column no-center flex-align-center" style={{ transform: "translateY(7vh)" }}>
-      <Row className="flex flex-align-center">
-        <span className="fs-25 logo-text">Registrasi Pasien Baru</span>
-      </Row>
-      <Row>
-        <Form error={error} loading={submitLoading} onFinish={formSubmit} formItems={formItems} formButton="Register" />
-      </Row>
-    </div>
+    <MainLayout>
+      <div className="flex flex-column no-center flex-align-center" style={{ transform: "translateY(7vh)" }}>
+        <Row className="flex flex-align-center">
+          <span className="fs-25 logo-text">Registrasi Pasien Baru</span>
+        </Row>
+        <Row>
+          <Form error={error} loading={submitLoading} onFinish={formSubmit} formItems={formItems} formButton="Register" />
+        </Row>
+      </div>
+    </MainLayout>
   );
 };
 

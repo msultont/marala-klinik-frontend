@@ -1,0 +1,9 @@
+.main-layout {
+  cursor: default;
+}
+
+@media (max-width: 575px) {
+  .no-center {
+    transform: translateY(0) !important;
+  }
+}

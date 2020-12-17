@@ -1,6 +1,8 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Carousel } from "antd";
 
+import MainLayout from "../../components/layouts/main-layout";
+import Form from "../../components/form";
 import { QueueAPI } from "../../api";
 
 const PatientQueue = () => {
@@ -8,8 +10,12 @@ const PatientQueue = () => {
   const [currentQueue, setCurrentQueue] = useState();
   const carousel = useRef();
 
-  const carouselRef = ref => { carousel.current = ref; };
-  const carouselGoTo = index => { carousel.current.goTo(index, false); };
+  const carouselRef = ref => {
+    carousel.current = ref;
+  };
+  const carouselGoTo = index => {
+    carousel.current.goTo(index, false);
+  };
 
   useEffect(() => {
     QueueAPI.getAllQueues()
@@ -43,22 +49,24 @@ const PatientQueue = () => {
   }, [currentQueue]);
 
   return (
-    <Carousel dots={false} ref={carouselRef} swipe={false}>
-      {currentQueue !== 0 ? (
-        queues.map((key, value) => {
-          return (
-            <div key={key}>
-              <h3 className="carousel-content">
-                <span style={{ fontSize: "400px", marginBottom: "200px" }}>{currentQueue}</span>
-                <span style={{ marginBottom: "-100px" }}>NOMOR ANTRIAN</span>
-              </h3>
-            </div>
-          );
-        })
-      ) : (
-        <div></div>
-      )}
-    </Carousel>
+    <MainLayout>
+      <Carousel dots={false} ref={carouselRef} swipe={false}>
+        {currentQueue !== 0 ? (
+          queues.map((key, value) => {
+            return (
+              <div key={key}>
+                <h3 className="carousel-content">
+                  <span style={{ fontSize: "400px", marginBottom: "200px" }}>{currentQueue}</span>
+                  <span style={{ marginBottom: "-100px" }}>NOMOR ANTRIAN</span>
+                </h3>
+              </div>
+            );
+          })
+        ) : (
+          <div></div>
+        )}
+      </Carousel>
+    </MainLayout>
   );
 };
 
