@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Row } from "antd";
 
 import Form from "../../../components/Form";
-import { PatientAPI, QueueAPI } from "../../../api";
+import { PatientAPI, QueueAPI } from "../../api";
 
 const PatientRegister = () => {
   const [submitLoading, setSubmitLoading] = useState();

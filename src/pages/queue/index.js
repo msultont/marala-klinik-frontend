@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Carousel } from "antd";
 
-import { QueueAPI } from "../../../api";
+import { QueueAPI } from "../../api";
 
 const PatientQueue = () => {
   const [queues, setQueues] = useState([]);
