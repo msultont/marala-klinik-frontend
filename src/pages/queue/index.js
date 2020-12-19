@@ -1,8 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
-import { Carousel } from "antd";
 
 import MainLayout from "../../components/layouts/main-layout";
-import Form from "../../components/form";
+import Carousel from "../../components/carousel";
 import { QueueAPI } from "../../api";
 
 const PatientQueue = () => {
@@ -32,12 +31,9 @@ const PatientQueue = () => {
     const interval = setInterval(() => {
       QueueAPI.getCurrentQueue()
         .then(res => {
-          console.log(res);
-          if (currentQueue !== res.data.currentQueue) {
-            carouselGoTo(res.data.currentQueue);
-            setCurrentQueue(res.data.currentQueue);
-          }
-          console.log(currentQueue);
+          setCurrentQueue(res.data.currentQueue);
+          carouselGoTo(res.data.currentQueue);
+          console.log(currentQueue)
         })
         .catch(err => {
           console.error(err);
@@ -50,22 +46,7 @@ const PatientQueue = () => {
 
   return (
     <MainLayout>
-      <Carousel dots={false} ref={carouselRef} swipe={false}>
-        {currentQueue !== 0 ? (
-          queues.map((key, value) => {
-            return (
-              <div key={key}>
-                <h3 className="carousel-content">
-                  <span style={{ fontSize: "400px", marginBottom: "200px" }}>{currentQueue}</span>
-                  <span style={{ marginBottom: "-100px" }}>NOMOR ANTRIAN</span>
-                </h3>
-              </div>
-            );
-          })
-        ) : (
-          <div></div>
-        )}
-      </Carousel>
+      <Carousel data={queues} identifier={currentQueue} ref={carouselRef} />
     </MainLayout>
   );
 };

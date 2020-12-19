@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Row } from "antd";
 
 import Form from "../../components/form";
 import MainLayout from "../../components/layouts/main-layout";
@@ -104,12 +103,8 @@ const PatientRegister = () => {
   return (
     <MainLayout>
       <div className="flex flex-column no-center flex-align-center" style={{ transform: "translateY(7vh)" }}>
-        <Row className="flex flex-align-center">
-          <span className="fs-25 logo-text">Registrasi Pasien Baru</span>
-        </Row>
-        <Row>
-          <Form error={error} loading={submitLoading} onFinish={formSubmit} formItems={formItems} formButton="Register" />
-        </Row>
+        <span className="fs-25 logo-text">Registrasi Pasien Baru</span>
+        <Form error={error} loading={submitLoading} onFinish={formSubmit} formItems={formItems} formButton="Register" />
       </div>
     </MainLayout>
   );

@@ -5,9 +5,10 @@ import { UserOutlined } from "@ant-design/icons";
 
 import Logo from "../../assets/images/logo_marala_1.png";
 import { QueueAPI } from "../../api";
-import { Cookies } from "../../config/Cookies";
+import { Cookies } from "../../config/cookies";
+import { GetCurrentYear } from "../../utils/date";
+import MainLayout from "../../components/layouts/main-layout";
 
-const date = new Date();
 const { Content, Footer, Header, Sider } = Layout;
 
 const AdminDashboard = () => {
@@ -66,25 +67,12 @@ const AdminDashboard = () => {
   }, []);
 
   return (
-    <Layout className="vh-100">
+    <MainLayout>
       {window.screen.width <= 575 ? (
         <div>UNSUPPORTED MEDIA</div>
       ) : (
         <>
-          <Header className="admin-dashboard__header">
-            <Row className="header-content">
-              <Col>
-                <Image alt="marala-logo" preview={false} src={Logo} width={50} />
-                <span className="logo-text">MARALA KLINIK</span>
-              </Col>
-              <Col>
-                <Dropdown arrow overlay={AVATAR_MENU} placement="bottomCenter" trigger={["click"]}>
-                  <Avatar className="header-content__avatar" icon={<UserOutlined />} size={50} />
-                </Dropdown>
-              </Col>
-            </Row>
-          </Header>
-          <Layout>
+          <Layout className="h-100">
             <Sider className="admin-dashboard__sider">{SIDE_MENU}</Sider>
             <Layout>
               <Content>
@@ -120,12 +108,11 @@ const AdminDashboard = () => {
                   <Col span={8}>service 6</Col>
                 </Row>
               </Content>
-              <Footer className="text-center">&copy; {date.getFullYear()} MARALA All Rights Reserved</Footer>
             </Layout>
           </Layout>
         </>
       )}
-    </Layout>
+    </MainLayout>
   );
 };
 

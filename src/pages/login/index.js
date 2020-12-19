@@ -37,27 +37,27 @@ const Login = () => {
   const formItems = [usernameItem, passwordItem];
 
   const formSubmit = values => {
-    // setSubmitLoading(true);
-    // setErrorLogin(false);
-    // AuthAPI.login(values)
-    //   .then(({ status, data }) => {
-    //     console.log(status);
-    //     if (status === 200) {
-    //       console.log(data);
-    //       setCookies(Cookies.TOKEN, data.accessToken, Cookies.OPTIONS);
-    //       setCookies(Cookies.TOKEN_TYPE, data.tokenType, Cookies.OPTIONS);
-    //       setCookies(Cookies.USERNAME, data.user.username, Cookies.OPTIONS);
-    //       setCookies(Cookies.USERROLE, data.user.role, Cookies.OPTIONS);
-    //       setTimeout(() => {
-    //         window.location.replace("/admin-dashboard");
-    //       }, 500);
-    //     }
-    //   })
-    //   .catch(err => {
-    //     console.error(err);
-    //     setSubmitLoading(false);
-    //     setErrorLogin(true);
-    //   });
+    setSubmitLoading(true);
+    setErrorLogin(false);
+    AuthAPI.login(values)
+      .then(({ status, data }) => {
+        console.log(status);
+        if (status === 200) {
+          console.log(data);
+          setCookies(Cookies.TOKEN, data.accessToken, Cookies.OPTIONS);
+          setCookies(Cookies.TOKEN_TYPE, data.tokenType, Cookies.OPTIONS);
+          setCookies(Cookies.USERNAME, data.user.username, Cookies.OPTIONS);
+          setCookies(Cookies.USERROLE, data.user.role, Cookies.OPTIONS);
+          setTimeout(() => {
+            window.location.replace("/dashboard");
+          }, 500);
+        }
+      })
+      .catch(err => {
+        console.error(err);
+        setSubmitLoading(false);
+        setErrorLogin(true);
+      });
   };
 
   return (

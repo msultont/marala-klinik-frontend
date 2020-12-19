@@ -6,8 +6,8 @@ import PageLogin from "../pages/login";
 import Page404 from "../pages/404";
 import PageQueue from "../pages/queue";
 import PageRegister from "../pages/register";
-// import PrivateRouter from "./private-router";
-// import PageAdminDashboard from "../pages/AdminDashboard";
+import PrivateRouter from "./private-router";
+import PageAdminDashboard from "../pages/dashboard";
 
 const AppRouter = () => {
   return (
@@ -17,7 +17,7 @@ const AppRouter = () => {
           <Route exact path="/" component={PageQueue} />
           <Route exact path="/register" component={PageRegister} />
           <Route exact path="/login" component={PageLogin} />
-          {/* <PrivateRouter exact path="/admin-dashboard" component={PageAdminDashboard} /> */}
+          <PrivateRouter exact path="/dashboard" component={PageAdminDashboard} />
           <Route component={Page404} />
         </Switch>
       </Router>
