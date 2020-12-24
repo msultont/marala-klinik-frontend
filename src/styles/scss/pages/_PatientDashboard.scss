@@ -11,13 +11,6 @@
 .patient-dashboard {
   cursor: default;
 
-  &__header {
-    background-color: $bg-light-grey;
-  }
-
-  &__footer {
-    background-color: $bg-light-grey;
-  }
 }
 
 @media (max-width: 575px) {

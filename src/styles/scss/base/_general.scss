@@ -1,3 +1,22 @@
+// Default Styles
+
+*, ::before, ::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  font-smooth: antialiased;
+  margin: 0;
+  padding: 0;
+}
+
+.ant-layout {
+  background: #fff !important;
+}
+
 // Flex Layout
 
 .flex {

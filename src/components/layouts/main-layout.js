@@ -1,20 +1,18 @@
 import React from "react";
 import { Layout } from "antd";
 
-import HeaderLayout from "./header-layout";
-import FooterLayout from "./footer-layout";
 import MaralaBrand from "../brand";
 import { GetCurrentYear } from "../../utils/date";
 
-const { Content } = Layout;
+const { Content, Footer, Header } = Layout;
 
 const MainLayout = ({children}) => (
   <Layout className="main-layout vh-100">
-    <HeaderLayout>
+    <Header className="header-layout flex flex-justify-center">
       <MaralaBrand logoWidth={50}/>
-    </HeaderLayout>
+    </Header>
     <Content className="overflow">{children}</Content>
-    <FooterLayout>&copy; {GetCurrentYear} MARALA All Rights Reserved</FooterLayout>
+    <Footer className="footer-layout text-center">&copy; {GetCurrentYear} MARALA All Rights Reserved</Footer>
   </Layout>
 );
  

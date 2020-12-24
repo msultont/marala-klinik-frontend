@@ -1,28 +1,3 @@
-/* *** Default styles *** */
-
-*,
-::before,
-::after {
-  box-sizing: border-box;
-}
-
-::selection {
-}
-
-html,
-body {
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  -moz-font-smoothing: antialiased;
-  font-smooth: antialiased;
-  margin: 0;
-  padding: 0;
-}
-
-.ant-layout {
-  background: #fff !important;
-}
-
 /*** base ***/
 @import "./base/variables";
 @import "./base/typography";
@@ -30,15 +5,13 @@ body {
 @import "./base/general";
 
 /*** layouts  ***/
-@import "./layouts/MainLayout";
-@import "./layouts/HeaderLayout";
-@import "./layouts/FooterLayout";
+@import "./layouts/dashboardLayout";
+@import "./layouts/mainLayout";
 
 /*** pages ***/
-@import "./pages/AdminDashboard";
 @import "./pages/PatientDashboard";
-@import "./pages/Login";
-@import "./pages/Queue";
+@import "./pages/login";
+@import "./pages/queue";
 
 /*** Global Custom Styles ***/
 

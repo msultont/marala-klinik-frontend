@@ -1,0 +1,28 @@
+// Antd css custom
+.ant-menu {
+  // Menu items container
+  &-vertical {
+    border-right: 0;
+  }
+  // Selected ant-item-menu
+  &:not(.ant-menu-horizontal) .ant-menu-item-selected {
+    background-color: $bg-light-grey;
+    border-left: 4px solid $bg-primary;
+  }
+}
+
+// User defined
+.dashboard {
+  cursor: default;
+
+  &__sider {
+    background-color: #fff;
+    box-shadow: 5px 0 5px -5px $bg-shadow;
+  }
+}
+
+.sider {
+  &__menu {
+    margin-top: 30px;
+  }
+}
