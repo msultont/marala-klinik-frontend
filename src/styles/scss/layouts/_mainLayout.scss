@@ -1,0 +1,18 @@
+.main-layout {
+  .header-layout {
+    background-color: $bg-light-grey;
+  }
+  
+  cursor: default;
+  
+  .footer-layout {
+    background-color: $bg-light-grey;
+  }
+}
+
+
+@media (max-width: 575px) {
+  .no-center {
+    transform: translateY(0) !important;
+  }
+}

@@ -1,0 +1,10 @@
+.summary-cards {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ant-card {
+  min-height: 100px;
+  width: 100%;
+  background-color: $bg-light-grey;
+}

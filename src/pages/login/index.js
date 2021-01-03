@@ -49,7 +49,7 @@ const Login = () => {
           setCookies(Cookies.USERNAME, data.user.username, Cookies.OPTIONS);
           setCookies(Cookies.USERROLE, data.user.role, Cookies.OPTIONS);
           setTimeout(() => {
-            window.location.replace("/dashboard");
+            window.location.replace("/dashboard/queue");
           }, 500);
         }
       })

@@ -1,12 +1,17 @@
 import React, { useState } from "react";
 
-import Form from "../../components/form";
+import Confirmation from "./confirmation";
+import FormRegister from "./form-register";
+import FormPatient from "./form-patient";
 import MainLayout from "../../components/layouts/main-layout";
 import { PatientAPI, QueueAPI } from "../../api";
 
 const PatientRegister = () => {
-  const [submitLoading, setSubmitLoading] = useState();
+  const [form, setForm] = useState();
+  const [formHidden, setFormHidden] = useState(true);
+  const [confirmation, setConfirmation] = useState(false);
   const [error, setError] = useState(false);
+  const [submitLoading, setSubmitLoading] = useState();
 
   const fullnameItem = {
     itemType: "textfield",
@@ -71,23 +76,26 @@ const PatientRegister = () => {
   };
 
   const formItems = [fullnameItem, birthPlaceItem, dateOfBirthItem, currentAddressItem, sexItem, occupationItem];
+  
+  // *Methods
 
   const formSubmit = values => {
     setSubmitLoading(true);
     setError(false);
     console.log(values);
-    PatientAPI.register(values)
+    QueueAPI.addQueue()
       .then(({ status, data }) => {
         if (status === 200) {
-          QueueAPI.addQueue()
+          alert(`Registrasi Anda berhasil! Nomor Antrian Anda ${data.queue}`);
+          PatientAPI.register(values)
             .then(({ status, data }) => {
               if (status === 200) {
-                alert(`Registrasi Anda berhasil! Nomor Antrian Anda ${data.queue}`);
-                window.location.reload();
+                // window.location.reload();
+                console.log(data)
+                setSubmitLoading(false);
               }
             })
             .catch(err => {
-              console.error(err);
               setSubmitLoading(false);
               setError(true);
             });
@@ -100,11 +108,27 @@ const PatientRegister = () => {
       });
   };
 
+  const pageConfirmation = props => {
+    props.target.outerText === "Sudah" ? setForm(false) : setForm(true)
+    setConfirmation(true);
+    setFormHidden(false)
+  }
+
+  // *End of Methods
+
+  const formRegister = {
+    error,
+    submitLoading,
+    formItems,
+    formSubmit,
+    formHidden
+  }
+
   return (
     <MainLayout>
       <div className="flex flex-column no-center flex-align-center" style={{ transform: "translateY(7vh)" }}>
-        <span className="fs-25 logo-text">Registrasi Pasien Baru</span>
-        <Form error={error} loading={submitLoading} onFinish={formSubmit} formItems={formItems} formButton="Register" />
+        <Confirmation hidden={confirmation} option={pageConfirmation} />
+        { form ? <FormRegister {...formRegister} /> : <FormPatient hidden={formHidden} /> }
       </div>
     </MainLayout>
   );

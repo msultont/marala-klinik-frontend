@@ -1,4 +1,10 @@
 // Antd css custom
+.ant-layout-sider-children {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .ant-menu {
   // Menu items container
   &-vertical {
@@ -18,11 +24,5 @@
   &__sider {
     background-color: #fff;
     box-shadow: 5px 0 5px -5px $bg-shadow;
-  }
-}
-
-.sider {
-  &__menu {
-    margin-top: 30px;
   }
 }
