@@ -1,11 +1,13 @@
-import React from 'react'
- 
+import React from "react";
+import { Result } from "antd";
+import Dashboard from "../dashboard";
+
 const PageNotFound = () => {
   return (
-    <>
-      <h1>PAGE NOT FOUND!</h1>
-    </>
+    <Dashboard>
+      <Result status="404" title="Halaman tidak ditemukan!" subTitle="Coming soon!" />
+    </Dashboard>
   );
 };
- 
+
 export default PageNotFound;

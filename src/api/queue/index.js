@@ -1,8 +1,10 @@
 import axios from "axios";
 
-const Auth = ({ url }) => {
+const Queues = ({ url, config }) => {
   const endpoint = "/queue";
   return {
+    getAllQueuesDB: ({ cookies }) => axios.get(`${url}${endpoint}/db/`, config("", "", cookies)),
+    updateQueuesDB: ({ cookies, data }) => axios.patch(`${url}${endpoint}/db/update`, data, config("application/json", "", cookies)),
     getAllQueues: () => axios.get(`${url}${endpoint}/`),
     getCurrentQueue: () => axios.get(`${url}${endpoint}/current`),
     addQueue: () => axios.post(`${url}${endpoint}/register`),
@@ -11,4 +13,4 @@ const Auth = ({ url }) => {
   };
 };
 
-export default Auth;
+export default Queues;

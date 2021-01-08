@@ -1,10 +1,15 @@
-.summary-cards {
-  display: flex;
-  justify-content: space-between;
-}
-
 .ant-card {
   min-height: 100px;
   width: 100%;
   background-color: $bg-light-grey;
+}
+
+.carousel-content {
+  background-color: $bg-primary;
+  color: $color-white;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 136px);
+  justify-content: center;
+  text-align: center;
 }

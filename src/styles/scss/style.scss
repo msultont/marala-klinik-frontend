@@ -7,9 +7,11 @@
 /*** layouts  ***/
 @import "./layouts/dashboardLayout";
 @import "./layouts/mainLayout";
+@import "./layouts/tableLayout";
 
 /*** pages ***/
-@import "./pages/PatientDashboard";
+@import "./pages/register";
+@import "./pages/patient";
 @import "./pages/login";
 @import "./pages/queue";
 

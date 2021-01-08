@@ -1,0 +1,16 @@
+.summary-cards {
+  display: flex;
+  justify-content: space-between;
+}
+
+.summary-cards > div {
+  &:not(:last-child) {
+    margin-right: 15px;
+  }
+}
+
+.functional-buttons > button {
+  &:not(:last-child) {
+    margin-right: 15px;
+  }
+}

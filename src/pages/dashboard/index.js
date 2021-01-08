@@ -9,6 +9,7 @@ const Dashboard = ({ children }) => {
   const [, , removeCookie] = useCookies();
 
   const menuLists = [
+    {name: "Dashboard", href: "/dashboard"},
     {name: "Antrian", href: "/dashboard/queue"},
     {name: "Pasien", href: "/dashboard/patients"} 
   ];

@@ -8,7 +8,6 @@ const { Content, Sider } = Layout;
 
 const DashboardLayout = ({ children, menuLists, logout }) => {
   const location = useLocation();
-  console.log(location?.pathname.split('/')[2])
   return (
     <Layout className="h-100">
       <Sider className="dashboard__sider">

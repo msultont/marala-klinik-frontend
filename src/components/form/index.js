@@ -4,12 +4,7 @@ import { Button, DatePicker, Form, Input, Select } from "antd";
 const { Item } = Form;
 const { Option } = Select;
 
-const FormComponent = ({ error: errorLogin, loading, onFinish, formItems, formButton }) => {
-  const NETWORK_ERROR = (
-    <Item>
-      <span className="color-danger">Network Error!</span>
-    </Item>
-  );
+const FormComponent = ({ loading, onFinish, formItems, formButton }) => {
 
   const ItemType = ({ itemType, label, name, rules, dropdownOptions }, key) => {
     let jsx = null;
@@ -37,7 +32,7 @@ const FormComponent = ({ error: errorLogin, loading, onFinish, formItems, formBu
       case "datepicker":
         jsx = (
           <Item className="font-bold" key={key} label={label} name={name} rules={[{ ...rules }]}>
-            <DatePicker />
+            <DatePicker className="w-100"/>
           </Item>
         );
         break;
@@ -51,7 +46,6 @@ const FormComponent = ({ error: errorLogin, loading, onFinish, formItems, formBu
   return (
     <Form className="form__container p-30" layout="vertical" onFinish={onFinish}>
       {formItems.map((value, key) => ItemType(value, key))}
-      {errorLogin ? NETWORK_ERROR : <div></div>}
       <Item>
         <Button className="w-100" htmlType="submit" loading={loading} type="primary">
           {formButton}
