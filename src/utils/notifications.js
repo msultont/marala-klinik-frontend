@@ -15,3 +15,7 @@ export const showErrorNotification = (err) => {
 export const showSuccessNotification = (message) => {
   showNotification('success', 'Berhasil', message)
 }
+
+export const showWarningNotification = (message) => {
+  showNotification('warning', 'Peringatan', message)
+}

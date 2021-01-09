@@ -34,6 +34,7 @@ const PatientRegister = () => {
                         Nomor Antrian Anda : ${queueNumber}
                         `);
                   window.location.reload();
+                  setSubmitLoading(false);
                 }
               })
               .catch(err => {
@@ -77,7 +78,6 @@ const PatientRegister = () => {
           showErrorMessage("Data pasien tidak ditemukan");
         });
     }
-    setSubmitLoading(false);
   };
 
   const pageConfirmation = props => {

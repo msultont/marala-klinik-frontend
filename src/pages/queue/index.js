@@ -3,6 +3,7 @@ import React, { useEffect, useState, useRef } from "react";
 import MainLayout from "../../components/layouts/main-layout";
 import Carousel from "../../components/carousel";
 import { QueueAPI } from "../../api";
+import { showWarningNotification } from "../../utils/notifications";
 
 const PatientQueue = () => {
   const [queues, setQueues] = useState([]);
@@ -18,13 +19,16 @@ const PatientQueue = () => {
 
   useEffect(() => {
     QueueAPI.getAllQueues()
-      .then(res => {
-        console.log(res);
-        setQueues(res.data.queues);
+      .then(({status, data}) => {
+        if (status === 200) setQueues(data.queues);
       })
-      .catch(err => {
-        console.error(err);
-      });
+      .catch((err) => {
+        console.error(err)
+      })
+    const warning = setTimeout(() => {
+      showWarningNotification("Nomor antrian tidak muncul? Silahkan muat ulang halaman browser")
+    }, 10000);
+    return () => clearTimeout(warning)
   }, []);
 
   useEffect(() => {
@@ -33,15 +37,13 @@ const PatientQueue = () => {
         .then(res => {
           setCurrentQueue(res.data.currentQueue);
           carouselGoTo(res.data.currentQueue);
-          console.log(currentQueue)
         })
-        .catch(err => {
-          console.error(err);
+        .catch(error => {
+          console.error(error)
         });
     }, 5000);
-    return () => {
-      clearInterval(interval);
-    };
+    return () => clearInterval(interval);
+    ;
   }, [currentQueue]);
 
   return (
