@@ -1,5 +1,5 @@
 export const RequestHeader = {
-  url: process.env.REACT_APP_API_URL_DEV,
+  url: process.env.NODE_ENV === 'production' ? process.env.REACT_APP_API_URL : process.env.REACT_APP_API_URL_DEV,
   config: (ACCEPT = "", CONTENT_TYPE = "", { MK_tokenType, MK_accessToken } = {}) => {
     let params = {
       headers: {
