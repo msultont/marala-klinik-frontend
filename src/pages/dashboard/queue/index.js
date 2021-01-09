@@ -142,6 +142,7 @@ const QueuePage = props => {
     getDailyQueues();
     getCurrentQueue();
     patientClinicTypeOptions();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // *End of useEffect

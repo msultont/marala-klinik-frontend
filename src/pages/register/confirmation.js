@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Form } from "antd";
+import { Button } from "antd";
 
 const Confirmation = ({ hidden, option }) => (
   <div className="mobile-register-confirmation" hidden={hidden}>
