@@ -7,9 +7,9 @@ const Queues = ({ url, config }) => {
     updateQueuesDB: ({ cookies, data }) => axios.patch(`${url}${endpoint}/db/update`, data, config("application/json", "", cookies)),
     getAllQueues: () => axios.get(`${url}${endpoint}/`),
     getCurrentQueue: () => axios.get(`${url}${endpoint}/current`),
-    addQueue: () => axios.post(`${url}${endpoint}/register`),
-    nextQueue: () => axios.post(`${url}${endpoint}/next`),
-    resetQueues: () => axios.post(`${url}${endpoint}/reset`)
+    addQueue: payload => axios.put(`${url}${endpoint}/register`, payload, config()),
+    nextQueue: () => axios.put(`${url}${endpoint}/next`),
+    resetQueues: () => axios.put(`${url}${endpoint}/reset`)
   };
 };
 

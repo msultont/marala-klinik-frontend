@@ -21,8 +21,12 @@ const PatientRegister = () => {
       PatientAPI.register(values)
         .then(({ status, data }) => {
           if (status === 200) {
-            const patientId = data._id;
-            QueueAPI.addQueue()
+            const patientId = data._id
+            const queuePayload = {
+              patientId : data._id,
+              fullName : data.fullName
+            }
+            QueueAPI.addQueue(queuePayload)
               .then(({ status, data }) => {
                 if (status === 200) {
                   const queueNumber = data.queue;
@@ -54,7 +58,11 @@ const PatientRegister = () => {
           if (status === 200) {
             const patientName = data.fullName;
             const patientId = data._id;
-            QueueAPI.addQueue()
+            const queuePayload = {
+              patientId : patientId,
+              fullName : patientName
+            }
+            QueueAPI.addQueue(queuePayload)
               .then(({ status, data }) => {
                 if (status === 200) {
                   const queueNumber = data.queue;

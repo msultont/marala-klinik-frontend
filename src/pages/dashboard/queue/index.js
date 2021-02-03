@@ -17,6 +17,7 @@ const QueuePage = props => {
   const [dataSource, setDataSource] = useState([]);
   const [dailyQueues, setDailyQueues] = useState([]);
   const [currentQueue, setCurrentQueue] = useState();
+  const [reset, setReset] = useState(false);
   // const data = {
   //   labels: ["January", "February", "March", "April", "May", "June", "July"],
   //   datasets: [
@@ -63,7 +64,7 @@ const QueuePage = props => {
     QueueAPI.getAllQueues()
       .then(({ status, data }) => {
         if (status === 200) {
-          setDailyQueues(data.queues.length);
+          setDailyQueues(data.queues.length - 1);
         }
       })
       .catch(err => {
@@ -81,14 +82,13 @@ const QueuePage = props => {
   };
   const nextQueue = () => {
     QueueAPI.nextQueue()
-      .then(({status}) => {
-        if (status === 200) {
-
-        }
+    .then(({status, data}) => {
+      if (status === 200) {
+        setCurrentQueue(data.currentQueue)
+      }
     }).catch(err => {
       showErrorNotification("Tidak ada antrian berikutnya")
     });
-    getCurrentQueue();
   };
 
   const resetQueue = () => {
@@ -96,6 +96,7 @@ const QueuePage = props => {
       .then(({status, data}) => {
         if (status === 200) {
           showSuccessNotification("Antrian berhasil direset")
+          setReset(prev => !prev)
         }
       })
   }
@@ -143,7 +144,7 @@ const QueuePage = props => {
     getCurrentQueue();
     patientClinicTypeOptions();
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [currentQueue, reset]);
 
   // *End of useEffect
 

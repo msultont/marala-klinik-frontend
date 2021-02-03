@@ -20,7 +20,10 @@ const PatientQueue = () => {
   useEffect(() => {
     QueueAPI.getAllQueues()
       .then(({status, data}) => {
-        if (status === 200) setQueues(data.queues);
+        if (status === 200) {
+          console.log(data)
+          setQueues(data.queues);
+        }
       })
       .catch((err) => {
         console.error(err)
@@ -29,14 +32,17 @@ const PatientQueue = () => {
       showWarningNotification("Nomor antrian tidak muncul? Silahkan muat ulang halaman browser")
     }, 10000);
     return () => clearTimeout(warning)
-  }, []);
+  }, [currentQueue]);
 
   useEffect(() => {
     const interval = setInterval(() => {
       QueueAPI.getCurrentQueue()
-        .then(res => {
-          setCurrentQueue(res.data.currentQueue);
-          carouselGoTo(res.data.currentQueue);
+        .then(({ status, data }) => {
+          if (status === 200) {
+            console.log(data)
+            setCurrentQueue(data.currentQueue);
+            carouselGoTo(data.currentQueue);
+          }
         })
         .catch(error => {
           console.error(error)
