@@ -14,11 +14,11 @@ const DashboardLayout = ({ children, menuLists, logout }) => {
         <Menu className="mt-30 text-center" defaultSelectedKeys={[location.pathname]} theme="light">
           {menuLists.map((list,) => (
             <Menu.Item key={list.href}>
-              <Link to={list.href}>{list.name}</Link>
+              <Link className="fs-19" to={list.href}>{list.name}</Link>
             </Menu.Item>
           ))}
         </Menu>
-        <Button className="mb-30" icon={<LogoutOutlined />} onClick={logout} type="primary">
+        <Button className="mb-30 fs-19" icon={<LogoutOutlined />} onClick={logout} type="primary">
           Keluar
         </Button>
       </Sider>

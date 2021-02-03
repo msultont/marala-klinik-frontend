@@ -10,7 +10,7 @@ const TableLayout = ({ buttons = [], children, title, summaryCards = [] }) => (
       <h4>{title}</h4>
       <div className="flex functional-buttons">
         {buttons.map((v, k) => (
-          <Button key={k} onClick={v.handleClick} type="primary">{v.label}</Button>
+          <Button className="fs-19" style={{width: 250}} key={k} onClick={v.handleClick} type="primary">{v.label}</Button>
         ))}
       </div>
     </Header>
