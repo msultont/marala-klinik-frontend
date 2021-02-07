@@ -53,7 +53,7 @@ const PatientsPage = props => {
   return (
     <Dashboard>
       <TableLayout {...pageProps}>
-        <Table {...tableProps} pagination={false} rowKey={record => record._id} />
+        <Table {...tableProps} pagination={false} rowKey={record => record._id} scroll={{ y: 500 }} />
       </TableLayout>
     </Dashboard>
   );

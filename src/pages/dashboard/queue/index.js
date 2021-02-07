@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { useCookies } from "react-cookie";
-// import { Line } from "react-chartjs-2";
-import { Table, Select } from "antd";
-import TableColumns from "./queue-table-column";
 import Dashboard from "../../dashboard";
-import { QueueAPI } from "../../../api";
 import TableLayout from "../../../components/layouts/table-layout";
+import TableColumns from "./queue-table-column";
+import { QueueAPI } from "../../../api";
+import { useCookies } from "react-cookie";
+import { checkViewport } from "../../../utils/misc";
+import { Table, Select } from "antd";
 import { showErrorMessage } from "../../../utils/error";
 import { showErrorNotification, showSuccessNotification } from "../../../utils/notifications";
+// import { Line } from "react-chartjs-2";
 
 const { Option } = Select;
 
@@ -175,7 +176,7 @@ const QueuePage = props => {
   return (
     <Dashboard>
       <TableLayout {...pageProps}>
-        <Table {...tableProps} pagination={false} rowKey={record => record._id} />
+        <Table {...tableProps} pagination={false} rowKey={record => record._id} scroll={{ y: 400 }} />
       </TableLayout>
       {/* <Line data={data} width={500} /> */}
     </Dashboard>
