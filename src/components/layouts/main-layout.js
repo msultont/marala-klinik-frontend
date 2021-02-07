@@ -11,7 +11,7 @@ const MainLayout = ({children}) => (
     <Header className="header-layout flex flex-justify-center">
       <MaralaBrand logoWidth={50}/>
     </Header>
-    <Content>{children}</Content>
+    <Content style={{overflowY: "auto"}}>{children}</Content>
     <Footer className="footer-layout text-center">&copy; {GetCurrentYear} MARALA All Rights Reserved</Footer>
   </Layout>
 );
