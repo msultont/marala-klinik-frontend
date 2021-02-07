@@ -4,7 +4,6 @@ import TableLayout from "../../../components/layouts/table-layout";
 import TableColumns from "./queue-table-column";
 import { QueueAPI } from "../../../api";
 import { useCookies } from "react-cookie";
-import { checkViewport } from "../../../utils/misc";
 import { Table, Select } from "antd";
 import { showErrorMessage } from "../../../utils/error";
 import { showErrorNotification, showSuccessNotification } from "../../../utils/notifications";
