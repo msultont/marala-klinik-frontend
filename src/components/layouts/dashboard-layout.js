@@ -23,7 +23,7 @@ const DashboardLayout = ({ children, menuLists, logout }) => {
         </Button>
       </Sider>
       <Layout>
-        <Content>{children}</Content>
+        <Content style={{ overflow: "auto" }}>{children}</Content>
       </Layout>
     </Layout>
   );

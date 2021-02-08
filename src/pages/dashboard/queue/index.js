@@ -125,8 +125,8 @@ const QueuePage = props => {
             <Select className="w-100" onSelect={(value) => setPatientClinicType(record.patientId, value)}>
               <Option value="Praktek Dokter Umum">Praktek Dokter Umum</Option>
               <Option value="Praktek Dokter Gigi">Praktek Dokter Gigi</Option>
-              <Option value="Konsultasi Dokter Bedah">Konsultasi Dokter Bedah</Option>
-              <Option value="Konsultasi Psikolog">Konsultasi Psikolog</Option>
+              <Option value="Praktek Dokter Bedah">Praktek Dokter Bedah</Option>
+              <Option value="Praktek Dokter Psikolog">Praktek Dokter Psikolog</Option>
             </Select>
           )
         }
