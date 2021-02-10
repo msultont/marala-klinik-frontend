@@ -114,26 +114,6 @@ const QueuePage = props => {
       })
   };
 
-  const patientClinicTypeOptions = () => {
-    TableColumns[3] = {
-      title: "Klinik yang Dikunjungi",
-      dataIndex: 'clinicType',
-      key: 'clinicType',
-      render: (text, record, index) => {
-        if (text === "") {
-          return (
-            <Select className="w-100" onSelect={(value) => setPatientClinicType(record.patientId, value)}>
-              <Option value="Praktek Dokter Umum">Praktek Dokter Umum</Option>
-              <Option value="Praktek Dokter Gigi">Praktek Dokter Gigi</Option>
-              <Option value="Praktek Dokter Bedah">Praktek Dokter Bedah</Option>
-              <Option value="Praktek Dokter Psikolog">Praktek Dokter Psikolog</Option>
-            </Select>
-          )
-        }
-        return text;
-      }
-    }
-  }
   // *End of Methods
 
   // *useEffect
@@ -142,7 +122,6 @@ const QueuePage = props => {
     getQueuesDB();
     getDailyQueues();
     getCurrentQueue();
-    patientClinicTypeOptions();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentQueue, reset]);
 
