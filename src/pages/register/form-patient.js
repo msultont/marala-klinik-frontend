@@ -22,7 +22,18 @@ const FormPatient = ({ error, formSubmit, formHidden, submitLoading }) => {
     }
   };
 
-  const formItems = [patientIdItem, birthPlaceItem] 
+  const clinicTypeItem = {
+    itemType: "dropdown",
+    label: "Klinik Yang Dikunjungi",
+    name: "clinicType",
+    rules: {
+      required: true,
+      message: "Silahkan dipilih klinik yang ingin Anda kunjungi!"
+    },
+    dropdownOptions: ["Praktek Dokter Umum", "Praktek Dokter Gigi", "Praktek Dokter Bedah", "Praktek Dokter Psikolog"]
+  };
+
+  const formItems = [patientIdItem, birthPlaceItem, clinicTypeItem] 
 
   return (
   <div hidden={formHidden}>

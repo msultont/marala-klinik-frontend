@@ -74,6 +74,17 @@ const FormRegister = ({ error, formSubmit, formHidden, submitLoading }) => {
     dropdownOptions: ["Pengusaha", "PNS", "Karyawan Swasta", "Freelancer", "Pedagang"]
   };
 
+  const clinicTypeItem = {
+    itemType: "dropdown",
+    label: "Klinik Yang Dikunjungi",
+    name: "clinicType",
+    rules: {
+      required: true,
+      message: "Silahkan dipilih klinik yang ingin Anda kunjungi!"
+    },
+    dropdownOptions: ["Praktek Dokter Umum", "Praktek Dokter Gigi", "Praktek Dokter Bedah", "Praktek Dokter Psikolog"]
+  };
+
   const mobilePhoneItem = {
     itemType: "textfield",
     label: "No. HP / Whatsapp",
@@ -84,7 +95,7 @@ const FormRegister = ({ error, formSubmit, formHidden, submitLoading }) => {
     }
   };
 
-  const formItems = [fullnameItem, birthPlaceItem, dateOfBirthItem, ageItem, currentAddressItem, sexItem, occupationItem, mobilePhoneItem];
+  const formItems = [fullnameItem, birthPlaceItem, dateOfBirthItem, ageItem, currentAddressItem, sexItem, occupationItem, clinicTypeItem, mobilePhoneItem];
 
   return (
     <div hidden={formHidden}>

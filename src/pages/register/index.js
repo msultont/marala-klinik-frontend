@@ -24,7 +24,8 @@ const PatientRegister = () => {
             const patientId = data._id
             const queuePayload = {
               patientId : data._id,
-              fullName : data.fullName
+              fullName : data.fullName,
+              clinicType: values.clinicType
             }
             QueueAPI.addQueue(queuePayload)
               .then(({ status, data }) => {
@@ -60,7 +61,8 @@ const PatientRegister = () => {
             const patientId = data._id;
             const queuePayload = {
               patientId : patientId,
-              fullName : patientName
+              fullName : patientName,
+              clinicType: values.clinicType
             }
             QueueAPI.addQueue(queuePayload)
               .then(({ status, data }) => {
