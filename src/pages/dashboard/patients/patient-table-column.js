@@ -1,3 +1,5 @@
+import { FormatDate } from '../../../utils/date';
+
 const PatientTableColumn = [
   {
     title: "ID Pasien",
@@ -19,6 +21,12 @@ const PatientTableColumn = [
     title: "Tanggal Lahir",
     dataIndex: 'dateOfBirth',
     key: 'dateOfBirth',
+    render: (record) => {
+      console.log(record)
+      return (
+        <>{FormatDate(record)}</>
+      )
+    }
   },
   {
     title: 'Usia',
