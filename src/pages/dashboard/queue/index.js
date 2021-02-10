@@ -4,12 +4,11 @@ import TableLayout from "../../../components/layouts/table-layout";
 import TableColumns from "./queue-table-column";
 import { QueueAPI } from "../../../api";
 import { useCookies } from "react-cookie";
-import { Table, Select } from "antd";
+import { Table } from "antd";
 import { showErrorMessage } from "../../../utils/error";
 import { showErrorNotification, showSuccessNotification } from "../../../utils/notifications";
 // import { Line } from "react-chartjs-2";
 
-const { Option } = Select;
 
 const QueuePage = props => {
   const [cookies] = useCookies();
@@ -100,19 +99,6 @@ const QueuePage = props => {
         }
       })
   }
-
-  const setPatientClinicType = (patientId, clinicType) => {
-    payload.data = {clinicType: clinicType, patientId: patientId}
-    QueueAPI.updateQueuesDB(payload)
-      .then(({status}) => {
-        if (status === 200) {
-          getQueuesDB()
-        }
-      })
-      .catch((err) => {
-        showErrorMessage("Tidak dapat melakukan update pada tabel!")
-      })
-  };
 
   // *End of Methods
 
