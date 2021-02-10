@@ -71,7 +71,7 @@ const FormRegister = ({ error, formSubmit, formHidden, submitLoading }) => {
       required: true,
       message: "Silahkan dipilih pekerjaan Anda!"
     },
-    dropdownOptions: ["Pengusaha", "PNS", "Karyawan Swasta", "Freelancer", "Pedagang"]
+    dropdownOptions: ["Freelancer", "Karyawan Swasta", "Mahasiswa", "Pelajar", "Pengusaha", "Pegawai Negeri Sipil", "Pedagang"]
   };
 
   const clinicTypeItem = {
